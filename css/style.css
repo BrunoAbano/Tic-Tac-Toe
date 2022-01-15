@@ -9,19 +9,19 @@ body{
 }
 
 .game-board {
-	width: 37em;
-	height: 37em;
+	width: 30vw;
+	height: 30vw;
 	margin: 0 auto;
   background-color: #34495e;
   color: #fff;
-  border: .4em solid #2c3e50;
-  border-radius: 10px;
+  border: .5vw solid #2c3e50;
+  border-radius: 1vw;
 	display: grid;
 	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
 
 .pos{
-  border: .4em solid #2c3e50;
+  border: .4vw solid #2c3e50;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,7 @@ body{
 img {
   display:inline-block;
   vertical-align:middle;
-  width: 6em;
+  width: 5vw;
 }
 
 @font-face {
@@ -47,11 +47,10 @@ h1 {
   display:inline-block;
   vertical-align:middle;
   margin: 0;
-  font-size: 5em;
+  font-size: 4.2vw;
   font-family: netflix;
-  letter-spacing: .2em;
-  padding-top: .02em;
-  padding-left: .3em;
+  letter-spacing: .8vw;
+  padding-left: 1.2vw;
 }
 
 #turns{
@@ -68,14 +67,14 @@ h1 {
 #x-turn{
   display: flex;
   transition: opacity 0.3s ease-in-out;
-  margin-right: 30em;
+  margin-right: 25vw;
   opacity: 25%;
 }
 
 #o-turn{
   display: flex;
   transition: opacity 0.3s ease-in-out;
-  margin-left: 30em;
+  margin-left: 25vw;
   opacity: 25%;
 }
 
@@ -88,25 +87,25 @@ h1 {
 }
 
 #choose{
-  width: 50em; 
-  height: 30em;
+  width: 40vw; 
+  height: 25vw;
   background: #2c3e50;
-  border-radius: 2em;
+  border-radius: 3vw;
 }
 
 h2{
   margin: 0;
-  font-size: 7em;
+  font-size: 5.5vw;
   font-family: netflix;
-  letter-spacing: .1em;
+  letter-spacing: .7vw;
   text-align: center;
   color: white;
-  padding-top: .5em;
+  padding-top: 3vw;
 }
 
 .img-choose{
-  margin-top: 2em;
-  width: 12em;
+  margin-top: 2vw;
+  width: 10vw;
   cursor: pointer;
 }
 
@@ -118,7 +117,7 @@ h2{
 }
 
 #choose-x:hover {
-  border-radius: 1em;
+  border-radius: 1vw;
   background: #22303d;
 }
 
@@ -130,7 +129,7 @@ h2{
 }
 
 #choose-o:hover {
-  border-radius: 1em;
+  border-radius: 1vw;
   background: #22303d;
 }
 
@@ -144,24 +143,24 @@ h2{
 }
 
 #victory{
-  width: 50em; 
-  height: 30em;
+  width: 40vw; 
+  height: 25vw;
   background: #2c3e50;
-  border-radius: 2em;
+  border-radius: 3vw;
 }
 
 #playerVictory{
   float: left;
-  width: 12.5em;
+  width: 10vw;
   margin-top: 18%;
-  margin-left: 4em;
+  margin-left: 3vw;
 }
 
 #victoryTitle{
   margin: 0;
-  font-size: 7em;
+  font-size: 6vw;
   font-family: netflix;
-  letter-spacing: .1em;
+  letter-spacing: .5vw;
   text-align: center;
   color: white;
   padding-top: 22%;
@@ -177,18 +176,18 @@ h2{
 }
 
 #tie{
-  width: 50em; 
-  height: 30em;
+  width: 40vw; 
+  height: 25vw;
   background: #2c3e50;
-  border-radius: 2em;
+  border-radius: 3vw;
   text-align: center;
 }
 
 #tieTitle{
   margin: 0;
-  font-size: 7em;
+  font-size: 6vw;
   font-family: netflix;
-  letter-spacing: .1em;
+  letter-spacing: .5vw;
   text-align: center;
   color: white;
   padding-top: 20%;
@@ -197,15 +196,15 @@ h2{
 span{
   position: relative;
   display: inline-flex;
-  width: 15em;
-  height: 5em;
-  perspective: 100em;
-  margin-top: 4em;
+  width: 15vw;
+  height: 5vw;
+  perspective: 100vw;
+  margin-top: 3vw;
 }
 
 span a{
-  font-size: 2.2em;
-  letter-spacing: .1em;
+  font-size: 2vw;
+  letter-spacing: .2vw;
   transform-style: preserve-3d;
   transform: translateZ(-35px);
   transition: transform .25s;
@@ -216,30 +215,30 @@ span a:before,
 span a:after{
   position: absolute;
   content: "TRY AGAIN";
-  height: 2.2em;
-  width: 5.5em;
+  height: 4.2vw;
+  width: 11vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: .15em solid #1a2430;
+  border: .3vw solid #1a2430;
   box-sizing: border-box;
-  border-radius: .15em;
+  border-radius: .3vw;
 }
 
 span a:before{
   color: #fff;
   background: #243241;
-  transform: rotateY(0deg) translateZ(1em);
+  transform: rotateY(0deg) translateZ(2vw);
 }
 
 span a:after{
   color: #000;
   background: white;
-  transform: rotateX(90deg) translateZ(1em);
+  transform: rotateX(90deg) translateZ(2vw);
 }
 
 span a:hover{
-  transform: translateZ(-1em) rotateX(-90deg);
+  transform: translateZ(-2vw) rotateX(-90deg);
 }
 
 #victory span a{
@@ -247,9 +246,9 @@ span a:hover{
 }
 
 #tie span a{
-  margin-left: .7em;
+  margin-left: 2.2vw;
 }
 
 #victory-btn {
-  margin-top: 4em;
+  margin-top: 3vw;
 }
