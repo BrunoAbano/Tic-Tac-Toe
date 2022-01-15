@@ -1,0 +1,256 @@
+body{
+  margin: 0;
+}
+.game{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.game-board {
+	width: 600px;
+	height: 600px;
+	margin: 0 auto;
+  background-color: #34495e;
+  color: #fff;
+  border: 6px solid #2c3e50;
+  border-radius: 10px;
+	display: grid;
+	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.pos{
+  border: 6px solid #2c3e50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  cursor: pointer;
+  width: 95%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+}
+
+img {
+  display:inline-block;
+  vertical-align:middle;
+  width: 100px;
+}
+
+@font-face {
+  src: url(/fonts/Bebas-Regular.ttf);
+  font-family: netflix;
+}
+h1 {
+  display:inline-block;
+  vertical-align:middle;
+  margin: 0;
+  font-size: 5em;
+  font-family: netflix;
+  letter-spacing: .2em;
+  padding-top: 5px;
+  padding-left: .3em;
+}
+
+#turns{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+#x-turn{
+  display: flex;
+  transition: opacity 0.3s ease-in-out;
+  margin-right: 30em;
+  opacity: 25%;
+}
+
+#o-turn{
+  display: flex;
+  transition: opacity 0.3s ease-in-out;
+  margin-left: 30em;
+  opacity: 25%;
+}
+
+#choose-parent{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+#choose{
+  width: 800px; 
+  height: 500px;
+  background: #2c3e50;
+  border-radius: 10px;
+}
+
+h2{
+  margin: 0;
+  font-size: 7em;
+  font-family: netflix;
+  letter-spacing: .1em;
+  text-align: center;
+  color: white;
+  padding-top: .5em;
+}
+
+.img-choose{
+  margin-top: 2em;
+  width: 200px;
+  cursor: pointer;
+}
+
+#choose-x {
+  position: relative;
+  display: inline-block; 
+  left: 25%; 
+  transform: translate(-50%);
+}
+
+#choose-x:hover {
+  border-radius: 10px;
+  background: #22303d;
+}
+
+#choose-o {
+  position: relative;
+  display: inline-block; 
+  left: 50%; 
+  transform: translate(-50%);
+}
+
+#choose-o:hover {
+  border-radius: 10px;
+  background: #22303d;
+}
+
+#victory-parent{
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+#victory{
+  width: 800px; 
+  height: 500px;
+  background: #2c3e50;
+  border-radius: 10px;
+}
+
+#playerVictory{
+  float: left;
+  width: 200px;
+  margin-top: 18%;
+  margin-left: 4em;
+}
+
+#victoryTitle{
+  margin: 0;
+  font-size: 7em;
+  font-family: netflix;
+  letter-spacing: .1em;
+  text-align: center;
+  color: white;
+  padding-top: 22%;
+}
+
+#tie-parent{
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+#tie{
+  width: 800px; 
+  height: 500px;
+  background: #2c3e50;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#tieTitle{
+  margin: 0;
+  font-size: 7em;
+  font-family: netflix;
+  letter-spacing: .1em;
+  text-align: center;
+  color: white;
+  padding-top: 20%;
+}
+
+#try-again {
+  position:absolute; 
+   margin-left:-50px;
+   left:50%;
+   width:100px;
+   bottom:3em;
+}
+
+span{
+  position: relative;
+  display: inline-flex;
+  width: 200px;
+  height: 75px;
+  margin: 0 35px;
+  perspective: 1020px;
+  margin-top: 4em;
+}
+
+span a{
+  font-size: 2em;
+  letter-spacing: 3px;
+  transform-style: preserve-3d;
+  transform: translateZ(-35px);
+  transition: transform .25s;
+  font-family: netflix;
+}
+
+span a:before,
+span a:after{
+  position: absolute;
+  content: "Try Again";
+  height: 75px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid #1a2430;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+span a:before{
+  color: #fff;
+  background: #243241;
+  transform: rotateY(0deg) translateZ(35px);
+}
+
+span a:after{
+  color: #000;
+  background: white;
+  transform: rotateX(90deg) translateZ(25px);
+}
+
+span a:hover{
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+
+#victory-btn {
+  margin-top: 4em;
+}

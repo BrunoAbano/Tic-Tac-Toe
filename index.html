@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="icon" href="img/TicTacToe-Logo.jpeg">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js"></script>
+  <title>Tic Tac Toe</title>
+</head>
+<body>
+
+  <div class="game">
+
+      <div class="game-board">
+        <div id="position1" class="pos" onclick="pos1(1)"></div>
+        <div id="position2" class="pos" onclick="pos2(2)"></div>
+        <div id="position3" class="pos" onclick="pos3(3)"></div>
+        <div id="position4" class="pos" onclick="pos4(4)"></div>
+        <div id="position5" class="pos" onclick="pos5(5)"></div>
+        <div id="position6" class="pos" onclick="pos6(6)"></div>
+        <div id="position7" class="pos" onclick="pos7(7)"></div>
+        <div id="position8" class="pos" onclick="pos8(8)"></div>
+        <div id="position9" class="pos" onclick="pos9(9)"></div>
+      </div>
+
+  </div>
+
+ <div id="turns">
+
+  <div id="x-turn">
+    <img src="img/x.png" alt="X">
+    <h1>TURN</h1>
+  </div>
+
+  <div id="o-turn">
+    <img src="img/o.png" alt="O">
+    <h1>TURN</h1>
+  </div>
+
+ </div>
+
+
+  <div id="choose-parent">
+    <div id="choose">
+      <h2>Start with</h2>
+      <img id="choose-x" class="img-choose" src="img/x.png" alt="X" onclick="xStart()">
+      <img id="choose-o" class="img-choose" src="img/o.png" alt="O" onclick="oStart()">
+    </div>
+  </div>
+
+  <div id="victory-parent">
+    <div id="victory">
+      
+    </div>
+  </div>
+
+  <div id="tie-parent">
+    <div id="tie">
+      <h3 id='tieTitle'>That's a tie!</h3>
+      <span><a onclick="restart()"></a></span>
+    </div>
+  </div>
+  
+</body>
+</html>
