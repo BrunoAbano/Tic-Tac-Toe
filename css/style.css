@@ -252,3 +252,111 @@ span a:hover{
 #victory-btn {
   margin-top: 3vw;
 }
+
+#lines{
+  position: absolute;
+  pointer-events: none;
+}
+
+#line-top-hori{
+  float: left;
+  height: .4vw;
+  width: 28vw;
+  background: red;
+  border: .3vw solid rgb(179, 0, 0);
+  border-radius: .5vw;
+  margin-top: 4.3vw;
+  margin-left: .9vw;
+  visibility: hidden;
+}
+
+#line-mid-hori{
+  float: left;
+  height: .4vw;
+  width: 28vw;
+  background: red;
+  border: .3vw solid rgb(179, 0, 0);
+  border-radius: .5vw;
+  margin-top: 9.3vw;
+  margin-left: .9vw;
+  visibility: hidden;
+}
+
+#line-bottom-hori{
+  float: left;
+  height: .4vw;
+  width: 28vw;
+  background: red;
+  border: .3vw solid rgb(179, 0, 0);
+  border-radius: .5vw;
+  margin-top: 9vw;
+  margin-left: .9vw;
+  visibility: hidden;
+}
+
+#line-left-ver{
+  position: absolute;
+  float: left;
+  height: 28vw;
+  width: .4vw;
+  background: red;
+  border: .3vw solid rgb(179, 0, 0);
+  border-radius: .5vw;
+  margin-left: 4.7vw;
+  margin-top: .7vw;
+  visibility: hidden;
+}
+
+#line-mid-ver{
+  position: absolute;
+  float: left;
+  height: 28vw;
+  width: .4vw;
+  background: red;
+  border: .3vw solid rgb(179, 0, 0);
+  border-radius: .5vw;
+  margin-left: 14.7vw;
+  margin-top: .7vw;
+  visibility: hidden;
+}
+
+#line-right-ver{
+  position: absolute;
+  float: left;
+  height: 28vw;
+  width: .4vw;
+  background: red;
+  border: .3vw solid rgb(179, 0, 0);
+  border-radius: .5vw;
+  margin-left: 24.7vw;
+  margin-top: .7vw;
+  visibility: hidden;
+}
+
+#line-up-down-dig{
+  position: absolute;
+  float: left;
+  height: 35vw;
+  width: .4vw;
+  background: red;
+  border: .3vw solid rgb(179, 0, 0);
+  border-radius: .5vw;
+  margin-left: 14.5vw;
+  margin-top: -3vw;
+  transform: rotate(-45deg);
+  visibility: hidden;
+}
+
+#line-down-up-dig{
+  position: absolute;
+  float: left;
+  height: 35vw;
+  width: .4vw;
+  background: red;
+  border: .3vw solid rgb(179, 0, 0);
+  border-radius: .5vw;
+  margin-left: 14.9vw;
+  margin-top: -3vw;
+  transform: rotate(45deg);
+  visibility: hidden;
+}

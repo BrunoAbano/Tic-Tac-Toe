@@ -1,4 +1,6 @@
-var position = [null, null, null, null, null, null, null, null, null];
+var position = [null, null, null, 
+                null, null, null, 
+                null, null, null];
 var change;
 var xCounter = 0;
 var oCounter = 0;
@@ -187,11 +189,16 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (
-        (position[1] == choice && position[2] == choice) ||
-        (position[4] == choice && position[8] == choice) ||
-        (position[3] == choice && position[6] == choice)
-      ) {
+      if (position[1] == choice && position[2] == choice) {
+        horizontalLine("top");
+        victoryMessage(choice);
+        return;
+      } else if (position[4] == choice && position[8] == choice) {
+        diagonalLine("up-down");
+        victoryMessage(choice);
+        return;
+      } else if (position[3] == choice && position[6] == choice) {
+        verticalLine("left");
         victoryMessage(choice);
         return;
       }
@@ -207,10 +214,12 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (
-        (position[0] == choice && position[2] == choice) ||
-        (position[4] == choice && position[7] == choice)
-      ) {
+      if (position[0] == choice && position[2] == choice) {
+        horizontalLine("top");
+        victoryMessage(choice);
+        return;
+      } else if (position[4] == choice && position[7] == choice) {
+        verticalLine("mid");
         victoryMessage(choice);
         return;
       }
@@ -226,11 +235,16 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (
-        (position[0] == choice && position[1] == choice) ||
-        (position[4] == choice && position[6] == choice) ||
-        (position[5] == choice && position[8] == choice)
-      ) {
+      if (position[0] == choice && position[1] == choice) {
+        horizontalLine("top");
+        victoryMessage(choice);
+        return;
+      } else if (position[4] == choice && position[6] == choice) {
+        diagonalLine("down-up")
+        victoryMessage(choice);
+        return;
+      } else if (position[5] == choice && position[8] == choice) {
+        verticalLine("right")
         victoryMessage(choice);
         return;
       }
@@ -246,10 +260,12 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (
-        (position[0] == choice && position[6] == choice) ||
-        (position[4] == choice && position[5] == choice)
-      ) {
+      if (position[0] == choice && position[6] == choice) {
+        verticalLine("left");
+        victoryMessage(choice);
+        return;
+      } else if (position[4] == choice && position[5] == choice) {
+        horizontalLine("mid");
         victoryMessage(choice);
         return;
       }
@@ -265,12 +281,20 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (
-        (position[0] == choice && position[8] == choice) ||
-        (position[2] == choice && position[6] == choice) ||
-        (position[3] == choice && position[5] == choice) ||
-        (position[1] == choice && position[7] == choice)
-      ) {
+      if (position[0] == choice && position[8] == choice) {
+        diagonalLine("up-down");
+        victoryMessage(choice);
+        return;
+      } else if (position[2] == choice && position[6] == choice) {
+        diagonalLine("down-up");
+        victoryMessage(choice);
+        return;
+      } else if (position[3] == choice && position[5] == choice) {
+        horizontalLine("mid");
+        victoryMessage(choice);
+        return;
+      } else if (position[1] == choice && position[7] == choice) {
+        verticalLine("mid");
         victoryMessage(choice);
         return;
       }
@@ -286,10 +310,12 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (
-        (position[2] == choice && position[8] == choice) ||
-        (position[3] == choice && position[4] == choice)
-      ) {
+      if (position[2] == choice && position[8] == choice) {
+        verticalLine("right");
+        victoryMessage(choice);
+        return;
+      } else if (position[3] == choice && position[4] == choice) {
+        horizontalLine("mid");
         victoryMessage(choice);
         return;
       }
@@ -305,11 +331,16 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (
-        (position[0] == choice && position[3] == choice) ||
-        (position[4] == choice && position[2] == choice) ||
-        (position[7] == choice && position[8] == choice)
-      ) {
+      if (position[0] == choice && position[3] == choice) {
+        verticalLine("left");
+        victoryMessage(choice);
+        return;
+      } else if (position[4] == choice && position[2] == choice) {
+        diagonalLine("down-up");
+        victoryMessage(choice);
+        return;
+      } else if (position[7] == choice && position[8] == choice) {
+        horizontalLine("bottom");
         victoryMessage(choice);
         return;
       }
@@ -325,10 +356,12 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (
-        (position[1] == choice && position[4] == choice) ||
-        (position[6] == choice && position[8] == choice)
-      ) {
+      if (position[1] == choice && position[4] == choice) {
+        verticalLine("mid");
+        victoryMessage(choice);
+        return;
+      } else if (position[6] == choice && position[8] == choice) {
+        horizontalLine("bottom");
         victoryMessage(choice);
         return;
       }
@@ -344,11 +377,16 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (
-        (position[2] == choice && position[5] == choice) ||
-        (position[0] == choice && position[4] == choice) ||
-        (position[6] == choice && position[7] == choice)
-      ) {
+      if (position[2] == choice && position[5] == choice) {
+        verticalLine("right");
+        victoryMessage(choice);
+        return;
+      } else if (position[0] == choice && position[4] == choice) {
+        diagonalLine("up-down")
+        victoryMessage(choice);
+        return;
+      } else if (position[6] == choice && position[7] == choice) {
+        horizontalLine("bottom");
         victoryMessage(choice);
         return;
       }
@@ -379,7 +417,7 @@ function victoryMessage(choice) {
         choice +
         ".png'> </img> <h3 id='victoryTitle'> has won!</h3> <span id='victory-btn'><a onclick='restart()'></a></span> </div>"
     ).appendTo("#victory");
-  }, 150);
+  }, 800);
 }
 
 function tieState() {
@@ -392,7 +430,7 @@ function tieState() {
     delay(function () {
       playSound("sounds/tie.wav", 0.7);
       document.getElementById("tie-parent").style.visibility = "visible";
-    }, 150);
+    }, 200);
   }
 }
 
@@ -455,6 +493,32 @@ function activeImg() {
   $("#choose-o").css("pointer-events", "all");
 }
 
+function horizontalLine(pos) {
+  var line = document.getElementById("line-" + pos + "-hori");
+  line.style.visibility = "visible";
+}
+
+function verticalLine(pos) {
+  var line = document.getElementById("line-" + pos + "-ver");
+  line.style.visibility = "visible";
+}
+
+function diagonalLine(pos) {
+  var line = document.getElementById("line-" + pos + "-dig");
+  line.style.visibility = "visible";
+}
+
+function disableLines() {
+  document.getElementById("line-top-hori").style.visibility = "hidden";
+  document.getElementById("line-mid-hori").style.visibility = "hidden";
+  document.getElementById("line-bottom-hori").style.visibility = "hidden";
+  document.getElementById("line-left-ver").style.visibility = "hidden";
+  document.getElementById("line-mid-ver").style.visibility = "hidden";
+  document.getElementById("line-right-ver").style.visibility = "hidden";
+  document.getElementById("line-up-down-dig").style.visibility = "hidden";
+  document.getElementById("line-down-up-dig").style.visibility = "hidden";
+}
+
 function fadeOutEffect() {
   playSound("sounds/PlayerSelect.wav", 0.8);
 
@@ -480,6 +544,7 @@ function playSound(audio, volume) {
 }
 
 function restart() {
+  disableLines();
   playSound("sounds/selection.wav", 0.8);
 
   if (hasWon) {
