@@ -1,23 +1,34 @@
-var position = [null, null, null, 
-                null, null, null, 
-                null, null, null];
+var position = [null, null, null, null, null, null, null, null, null];
 var change;
 var xCounter = 0;
 var oCounter = 0;
+var tie = false;
 var hasWon = false;
+var aiMode = false;
+
+function gamemodeCoop() {
+  document.getElementById("menu-parent").style.visibility = "hidden";
+  document.getElementById("choose-parent").style.visibility = "visible";
+}
+
+function gamemodeAI() {
+  document.getElementById("menu-parent").style.visibility = "hidden";
+  document.getElementById("choose-parent").style.visibility = "visible";
+  aiMode = true;
+}
 
 function xStart() {
   disableImg();
   change = false;
   opacityChange("o");
-  fadeOutEffect();
+  fadeOutEffect("choose-parent");
 }
 
 function oStart() {
   disableImg();
   change = true;
   opacityChange("x");
-  fadeOutEffect();
+  fadeOutEffect("choose-parent");
 }
 
 function pos1(pos) {
@@ -34,6 +45,11 @@ function pos1(pos) {
   }
 
   tieState();
+
+  if (aiMode) {
+    disablePositions();
+    aiNextMove();
+  }
 }
 
 function pos2(pos) {
@@ -50,6 +66,11 @@ function pos2(pos) {
   }
 
   tieState();
+
+  if (aiMode) {
+    disablePositions();
+    aiNextMove();
+  }
 }
 
 function pos3(pos) {
@@ -66,6 +87,11 @@ function pos3(pos) {
   }
 
   tieState();
+
+  if (aiMode) {
+    disablePositions();
+    aiNextMove();
+  }
 }
 
 function pos4(pos) {
@@ -82,6 +108,11 @@ function pos4(pos) {
   }
 
   tieState();
+
+  if (aiMode) {
+    disablePositions();
+    aiNextMove();
+  }
 }
 
 function pos5(pos) {
@@ -98,6 +129,11 @@ function pos5(pos) {
   }
 
   tieState();
+
+  if (aiMode) {
+    disablePositions();
+    aiNextMove();
+  }
 }
 
 function pos6(pos) {
@@ -114,6 +150,11 @@ function pos6(pos) {
   }
 
   tieState();
+
+  if (aiMode) {
+    disablePositions();
+    aiNextMove();
+  }
 }
 
 function pos7(pos) {
@@ -130,6 +171,11 @@ function pos7(pos) {
   }
 
   tieState();
+
+  if (aiMode) {
+    disablePositions();
+    aiNextMove();
+  }
 }
 
 function pos8(pos) {
@@ -146,6 +192,11 @@ function pos8(pos) {
   }
 
   tieState();
+
+  if (aiMode) {
+    disablePositions();
+    aiNextMove();
+  }
 }
 
 function pos9(pos) {
@@ -159,6 +210,23 @@ function pos9(pos) {
     oSelect(tablePos, pos);
 
     victoryState.pos9("o");
+  }
+
+  tieState();
+
+  if (aiMode) {
+    disablePositions();
+    aiNextMove();
+  }
+}
+
+function aiPos(pos) {
+  let tablePos = document.getElementById("position" + pos);
+
+  if (change == false) {
+    xSelect(tablePos, pos);
+  } else {
+    oSelect(tablePos, pos);
   }
 
   tieState();
@@ -189,15 +257,27 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (position[1] == choice && position[2] == choice) {
+      if (
+        position[0] == choice &&
+        position[1] == choice &&
+        position[2] == choice
+      ) {
         horizontalLine("top");
         victoryMessage(choice);
         return;
-      } else if (position[4] == choice && position[8] == choice) {
+      } else if (
+        position[0] == choice &&
+        position[4] == choice &&
+        position[8] == choice
+      ) {
         diagonalLine("up-down");
         victoryMessage(choice);
         return;
-      } else if (position[3] == choice && position[6] == choice) {
+      } else if (
+        position[0] == choice &&
+        position[3] == choice &&
+        position[6] == choice
+      ) {
         verticalLine("left");
         victoryMessage(choice);
         return;
@@ -214,11 +294,19 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (position[0] == choice && position[2] == choice) {
+      if (
+        position[0] == choice &&
+        position[1] == choice &&
+        position[2] == choice
+      ) {
         horizontalLine("top");
         victoryMessage(choice);
         return;
-      } else if (position[4] == choice && position[7] == choice) {
+      } else if (
+        position[1] == choice &&
+        position[4] == choice &&
+        position[7] == choice
+      ) {
         verticalLine("mid");
         victoryMessage(choice);
         return;
@@ -235,16 +323,28 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (position[0] == choice && position[1] == choice) {
+      if (
+        position[0] == choice &&
+        position[1] == choice &&
+        position[2] == choice
+      ) {
         horizontalLine("top");
         victoryMessage(choice);
         return;
-      } else if (position[4] == choice && position[6] == choice) {
-        diagonalLine("down-up")
+      } else if (
+        position[2] == choice &&
+        position[4] == choice &&
+        position[6] == choice
+      ) {
+        diagonalLine("down-up");
         victoryMessage(choice);
         return;
-      } else if (position[5] == choice && position[8] == choice) {
-        verticalLine("right")
+      } else if (
+        position[2] == choice &&
+        position[5] == choice &&
+        position[8] == choice
+      ) {
+        verticalLine("right");
         victoryMessage(choice);
         return;
       }
@@ -260,11 +360,19 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (position[0] == choice && position[6] == choice) {
+      if (
+        position[0] == choice &&
+        position[3] == choice &&
+        position[6] == choice
+      ) {
         verticalLine("left");
         victoryMessage(choice);
         return;
-      } else if (position[4] == choice && position[5] == choice) {
+      } else if (
+        position[3] == choice &&
+        position[4] == choice &&
+        position[5] == choice
+      ) {
         horizontalLine("mid");
         victoryMessage(choice);
         return;
@@ -281,19 +389,35 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (position[0] == choice && position[8] == choice) {
+      if (
+        position[0] == choice &&
+        position[4] == choice &&
+        position[8] == choice
+      ) {
         diagonalLine("up-down");
         victoryMessage(choice);
         return;
-      } else if (position[2] == choice && position[6] == choice) {
+      } else if (
+        position[2] == choice &&
+        position[4] == choice &&
+        position[6] == choice
+      ) {
         diagonalLine("down-up");
         victoryMessage(choice);
         return;
-      } else if (position[3] == choice && position[5] == choice) {
+      } else if (
+        position[3] == choice &&
+        position[4] == choice &&
+        position[5] == choice
+      ) {
         horizontalLine("mid");
         victoryMessage(choice);
         return;
-      } else if (position[1] == choice && position[7] == choice) {
+      } else if (
+        position[1] == choice &&
+        position[4] == choice &&
+        position[7] == choice
+      ) {
         verticalLine("mid");
         victoryMessage(choice);
         return;
@@ -310,11 +434,19 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (position[2] == choice && position[8] == choice) {
+      if (
+        position[2] == choice &&
+        position[5] == choice &&
+        position[8] == choice
+      ) {
         verticalLine("right");
         victoryMessage(choice);
         return;
-      } else if (position[3] == choice && position[4] == choice) {
+      } else if (
+        position[3] == choice &&
+        position[4] == choice &&
+        position[5] == choice
+      ) {
         horizontalLine("mid");
         victoryMessage(choice);
         return;
@@ -331,15 +463,27 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (position[0] == choice && position[3] == choice) {
+      if (
+        position[0] == choice &&
+        position[3] == choice &&
+        position[6] == choice
+      ) {
         verticalLine("left");
         victoryMessage(choice);
         return;
-      } else if (position[4] == choice && position[2] == choice) {
+      } else if (
+        position[6] == choice &&
+        position[4] == choice &&
+        position[2] == choice
+      ) {
         diagonalLine("down-up");
         victoryMessage(choice);
         return;
-      } else if (position[7] == choice && position[8] == choice) {
+      } else if (
+        position[6] == choice &&
+        position[7] == choice &&
+        position[8] == choice
+      ) {
         horizontalLine("bottom");
         victoryMessage(choice);
         return;
@@ -356,11 +500,19 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (position[1] == choice && position[4] == choice) {
+      if (
+        position[1] == choice &&
+        position[4] == choice &&
+        position[7] == choice
+      ) {
         verticalLine("mid");
         victoryMessage(choice);
         return;
-      } else if (position[6] == choice && position[8] == choice) {
+      } else if (
+        position[6] == choice &&
+        position[7] == choice &&
+        position[8] == choice
+      ) {
         horizontalLine("bottom");
         victoryMessage(choice);
         return;
@@ -377,15 +529,27 @@ const victoryState = {
     }
 
     function positionCheck() {
-      if (position[2] == choice && position[5] == choice) {
+      if (
+        position[2] == choice &&
+        position[5] == choice &&
+        position[8] == choice
+      ) {
         verticalLine("right");
         victoryMessage(choice);
         return;
-      } else if (position[0] == choice && position[4] == choice) {
-        diagonalLine("up-down")
+      } else if (
+        position[0] == choice &&
+        position[4] == choice &&
+        position[8] == choice
+      ) {
+        diagonalLine("up-down");
         victoryMessage(choice);
         return;
-      } else if (position[6] == choice && position[7] == choice) {
+      } else if (
+        position[6] == choice &&
+        position[7] == choice &&
+        position[8] == choice
+      ) {
         horizontalLine("bottom");
         victoryMessage(choice);
         return;
@@ -403,6 +567,96 @@ var delay = (function () {
     timer = setTimeout(callback, ms);
   };
 })();
+
+function aiNextMove() {
+  var move = Math.floor(Math.random() * position.length);
+
+  if (position[move] == null && !hasWon && !tie) {
+    delay(function () {
+      aiPos(move + 1);
+
+      switch (move) {
+        case 0:
+          if (change == true) {
+            victoryState.pos1("x");
+          } else {
+            victoryState.pos1("o");
+          }
+
+          break;
+        case 1:
+          if (change == true) {
+            victoryState.pos2("x");
+          } else {
+            victoryState.pos2("o");
+          }
+
+          break;
+        case 2:
+          if (change == true) {
+            victoryState.pos3("x");
+          } else {
+            victoryState.pos3("o");
+          }
+
+          break;
+        case 3:
+          if (change == true) {
+            victoryState.pos4("x");
+          } else {
+            victoryState.pos4("o");
+          }
+
+          break;
+        case 4:
+          if (change == true) {
+            victoryState.pos5("x");
+          } else {
+            victoryState.pos5("o");
+          }
+
+          break;
+        case 5:
+          if (change == true) {
+            victoryState.pos6("x");
+          } else {
+            victoryState.pos6("o");
+          }
+          break;
+        case 6:
+          if (change == true) {
+            victoryState.pos7("x");
+          } else {
+            victoryState.pos7("o");
+          }
+
+          break;
+        case 7:
+          if (change == true) {
+            victoryState.pos8("x");
+          } else {
+            victoryState.pos8("o");
+          }
+
+          break;
+        case 8:
+          if (change == true) {
+            victoryState.pos9("x");
+          } else {
+            victoryState.pos9("o");
+          }
+
+          break;
+      }
+
+      activateAvailablePositions();
+    }, 700);
+  } else {
+    if (!hasWon && !tie) {
+      aiNextMove();
+    }
+  }
+}
 
 function victoryMessage(choice) {
   hasWon = true;
@@ -424,11 +678,12 @@ function tieState() {
   playSound("sounds/selection.wav", 0.8);
 
   if (!position.includes(null) && !hasWon) {
+    tie = true;
     document.getElementById("x-turn").style.opacity = ".25";
     document.getElementById("o-turn").style.opacity = ".25";
 
     delay(function () {
-      playSound("sounds/tie.wav", 0.7);
+      playSound("sounds/tie.wav", 0.8);
       document.getElementById("tie-parent").style.visibility = "visible";
     }, 200);
   }
@@ -468,6 +723,14 @@ function disablePositions() {
   $("#position7").css("pointer-events", "none");
   $("#position8").css("pointer-events", "none");
   $("#position9").css("pointer-events", "none");
+}
+
+function activateAvailablePositions() {
+  for (let i = 0; i < position.length; i++) {
+    if (position[i] == null) {
+      $("#position" + (i + 1)).css("pointer-events", "all");
+    }
+  }
 }
 
 function clearImagesPosition() {
@@ -519,10 +782,10 @@ function disableLines() {
   document.getElementById("line-down-up-dig").style.visibility = "hidden";
 }
 
-function fadeOutEffect() {
+function fadeOutEffect(id) {
   playSound("sounds/PlayerSelect.wav", 0.8);
 
-  var fadeTarget = document.getElementById("choose-parent");
+  var fadeTarget = document.getElementById(id);
 
   var fadeEffect = setInterval(function () {
     if (!fadeTarget.style.opacity) {
@@ -553,6 +816,7 @@ function restart() {
 
     hasWon = false;
   } else {
+    tie = false;
     document.getElementById("tie-parent").style.visibility = "hidden";
   }
 
