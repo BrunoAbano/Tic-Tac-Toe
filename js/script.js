@@ -453,7 +453,6 @@ function disableImg() {
 function activeImg() {
   $("#choose-x").css("pointer-events", "all");
   $("#choose-o").css("pointer-events", "all");
-  activatePositions();
 }
 
 function fadeOutEffect() {
