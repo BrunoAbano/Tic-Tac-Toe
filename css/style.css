@@ -106,6 +106,8 @@ h1 {
   background: #394f64;
   border: .3vw solid white;
   border-radius: 1vw;
+  white-space: nowrap;
+  padding: 0px;
 }
 
 #gamemode-coop:hover {
@@ -122,6 +124,8 @@ h1 {
   background: #394f64;
   border: .3vw solid white;
   border-radius: 1vw;
+  white-space: nowrap;
+  padding: 0px;
 }
 
 #gamemode-ai:hover {
